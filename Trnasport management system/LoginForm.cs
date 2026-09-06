@@ -51,7 +51,12 @@ namespace Trnasport_management_system
                                 string fullName = reader["full_name"].ToString();
                                 MessageBox.Show($"Login Successful! Welcome {fullName}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                // Dashboard ekata navigate kirima
+                                // MainDashboard ekata navigate kirima
+                                MainDashboard dashboard = new MainDashboard(fullName);
+                                dashboard.Show();
+
+                                // Login form eka hide kirima
+                                this.Hide();
                             }
                             else
                             {
