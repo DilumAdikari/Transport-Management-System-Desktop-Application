@@ -6,10 +6,7 @@
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
@@ -23,31 +20,29 @@
             this.btnTours = new System.Windows.Forms.Button();
             this.btnDrivers = new System.Windows.Forms.Button();
             this.btnVehicles = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.lblBrand = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.dgvData = new System.Windows.Forms.DataGridView();
-            this.lblSectionTitle = new System.Windows.Forms.Label();
-            this.pnlNewRequest = new System.Windows.Forms.Panel();
-            this.lblDept = new System.Windows.Forms.Label();
-            this.txtDepartment = new System.Windows.Forms.TextBox();
-            this.lblFrom = new System.Windows.Forms.Label();
-            this.txtFrom = new System.Windows.Forms.TextBox();
-            this.lblTo = new System.Windows.Forms.Label();
-            this.txtTo = new System.Windows.Forms.TextBox();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.txtTime = new System.Windows.Forms.TextBox();
-            this.lblRemark = new System.Windows.Forms.Label();
-            this.txtRemark = new System.Windows.Forms.TextBox();
-            this.btnSubmitRequest = new System.Windows.Forms.Button();
+            this.pnlHomeOverview = new System.Windows.Forms.Panel();
+            this.cardVehicles = new System.Windows.Forms.Panel();
+            this.lblVehCount = new System.Windows.Forms.Label();
+            this.lblVehTitle = new System.Windows.Forms.Label();
+            this.cardDrivers = new System.Windows.Forms.Panel();
+            this.lblDrivCount = new System.Windows.Forms.Label();
+            this.lblDrivTitle = new System.Windows.Forms.Label();
+            this.cardTours = new System.Windows.Forms.Panel();
+            this.lblTourCount = new System.Windows.Forms.Label();
+            this.lblTourTitle = new System.Windows.Forms.Label();
+
             this.pnlSidebar.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.pnlContent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
-            this.pnlNewRequest.SuspendLayout();
+            this.pnlHomeOverview.SuspendLayout();
+            this.cardVehicles.SuspendLayout();
+            this.cardDrivers.SuspendLayout();
+            this.cardTours.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSidebar
@@ -58,12 +53,110 @@
             this.pnlSidebar.Controls.Add(this.btnTours);
             this.pnlSidebar.Controls.Add(this.btnDrivers);
             this.pnlSidebar.Controls.Add(this.btnVehicles);
+            this.pnlSidebar.Controls.Add(this.btnHome);
             this.pnlSidebar.Controls.Add(this.lblBrand);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(200, 550);
+            this.pnlSidebar.Size = new System.Drawing.Size(200, 560);
             this.pnlSidebar.TabIndex = 0;
+            // 
+            // lblBrand
+            // 
+            this.lblBrand.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblBrand.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblBrand.ForeColor = System.Drawing.Color.Gold;
+            this.lblBrand.Location = new System.Drawing.Point(0, 0);
+            this.lblBrand.Name = "lblBrand";
+            this.lblBrand.Size = new System.Drawing.Size(200, 65);
+            this.lblBrand.TabIndex = 0;
+            this.lblBrand.Text = "TMS Dashboard";
+            this.lblBrand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnHome
+            // 
+            this.btnHome.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.btnHome.ForeColor = System.Drawing.Color.White;
+            this.btnHome.Location = new System.Drawing.Point(0, 65);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnHome.Size = new System.Drawing.Size(200, 42);
+            this.btnHome.TabIndex = 1;
+            this.btnHome.Text = "Dashboard Home";
+            this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // btnVehicles
+            // 
+            this.btnVehicles.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVehicles.FlatAppearance.BorderSize = 0;
+            this.btnVehicles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVehicles.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.btnVehicles.ForeColor = System.Drawing.Color.White;
+            this.btnVehicles.Location = new System.Drawing.Point(0, 107);
+            this.btnVehicles.Name = "btnVehicles";
+            this.btnVehicles.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnVehicles.Size = new System.Drawing.Size(200, 42);
+            this.btnVehicles.TabIndex = 2;
+            this.btnVehicles.Text = "Vehicle Fleet";
+            this.btnVehicles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVehicles.UseVisualStyleBackColor = true;
+            this.btnVehicles.Click += new System.EventHandler(this.btnVehicles_Click);
+            // 
+            // btnDrivers
+            // 
+            this.btnDrivers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDrivers.FlatAppearance.BorderSize = 0;
+            this.btnDrivers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDrivers.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.btnDrivers.ForeColor = System.Drawing.Color.White;
+            this.btnDrivers.Location = new System.Drawing.Point(0, 149);
+            this.btnDrivers.Name = "btnDrivers";
+            this.btnDrivers.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnDrivers.Size = new System.Drawing.Size(200, 42);
+            this.btnDrivers.TabIndex = 3;
+            this.btnDrivers.Text = "Drivers Fleet";
+            this.btnDrivers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDrivers.UseVisualStyleBackColor = true;
+            this.btnDrivers.Click += new System.EventHandler(this.btnDrivers_Click);
+            // 
+            // btnTours
+            // 
+            this.btnTours.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTours.FlatAppearance.BorderSize = 0;
+            this.btnTours.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTours.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.btnTours.ForeColor = System.Drawing.Color.White;
+            this.btnTours.Location = new System.Drawing.Point(0, 191);
+            this.btnTours.Name = "btnTours";
+            this.btnTours.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnTours.Size = new System.Drawing.Size(200, 42);
+            this.btnTours.TabIndex = 4;
+            this.btnTours.Text = "Tour Requests";
+            this.btnTours.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTours.UseVisualStyleBackColor = true;
+            this.btnTours.Click += new System.EventHandler(this.btnTours_Click);
+            // 
+            // btnNewRequest
+            // 
+            this.btnNewRequest.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNewRequest.FlatAppearance.BorderSize = 0;
+            this.btnNewRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewRequest.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.btnNewRequest.ForeColor = System.Drawing.Color.Gold;
+            this.btnNewRequest.Location = new System.Drawing.Point(0, 233);
+            this.btnNewRequest.Name = "btnNewRequest";
+            this.btnNewRequest.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnNewRequest.Size = new System.Drawing.Size(200, 42);
+            this.btnNewRequest.TabIndex = 5;
+            this.btnNewRequest.Text = "+ New Request";
+            this.btnNewRequest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewRequest.UseVisualStyleBackColor = true;
+            this.btnNewRequest.Click += new System.EventHandler(this.btnNewRequest_Click);
             // 
             // btnLogout
             // 
@@ -73,93 +166,13 @@
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(0, 505);
+            this.btnLogout.Location = new System.Drawing.Point(0, 515);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(200, 45);
-            this.btnLogout.TabIndex = 5;
+            this.btnLogout.TabIndex = 6;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // btnNewRequest
-            // 
-            this.btnNewRequest.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNewRequest.FlatAppearance.BorderSize = 0;
-            this.btnNewRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewRequest.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnNewRequest.ForeColor = System.Drawing.Color.White;
-            this.btnNewRequest.Location = new System.Drawing.Point(0, 205);
-            this.btnNewRequest.Name = "btnNewRequest";
-            this.btnNewRequest.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnNewRequest.Size = new System.Drawing.Size(200, 45);
-            this.btnNewRequest.TabIndex = 4;
-            this.btnNewRequest.Text = "+ New Request";
-            this.btnNewRequest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewRequest.UseVisualStyleBackColor = true;
-            this.btnNewRequest.Click += new System.EventHandler(this.btnNewRequest_Click);
-            // 
-            // btnTours
-            // 
-            this.btnTours.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTours.FlatAppearance.BorderSize = 0;
-            this.btnTours.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTours.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnTours.ForeColor = System.Drawing.Color.White;
-            this.btnTours.Location = new System.Drawing.Point(0, 160);
-            this.btnTours.Name = "btnTours";
-            this.btnTours.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnTours.Size = new System.Drawing.Size(200, 45);
-            this.btnTours.TabIndex = 3;
-            this.btnTours.Text = "Tour Requests";
-            this.btnTours.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTours.UseVisualStyleBackColor = true;
-            this.btnTours.Click += new System.EventHandler(this.btnTours_Click);
-            // 
-            // btnDrivers
-            // 
-            this.btnDrivers.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDrivers.FlatAppearance.BorderSize = 0;
-            this.btnDrivers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDrivers.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnDrivers.ForeColor = System.Drawing.Color.White;
-            this.btnDrivers.Location = new System.Drawing.Point(0, 115);
-            this.btnDrivers.Name = "btnDrivers";
-            this.btnDrivers.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnDrivers.Size = new System.Drawing.Size(200, 45);
-            this.btnDrivers.TabIndex = 2;
-            this.btnDrivers.Text = "Drivers Fleet";
-            this.btnDrivers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDrivers.UseVisualStyleBackColor = true;
-            this.btnDrivers.Click += new System.EventHandler(this.btnDrivers_Click);
-            // 
-            // btnVehicles
-            // 
-            this.btnVehicles.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVehicles.FlatAppearance.BorderSize = 0;
-            this.btnVehicles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVehicles.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnVehicles.ForeColor = System.Drawing.Color.White;
-            this.btnVehicles.Location = new System.Drawing.Point(0, 70);
-            this.btnVehicles.Name = "btnVehicles";
-            this.btnVehicles.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnVehicles.Size = new System.Drawing.Size(200, 45);
-            this.btnVehicles.TabIndex = 1;
-            this.btnVehicles.Text = "Vehicle Fleet";
-            this.btnVehicles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVehicles.UseVisualStyleBackColor = true;
-            this.btnVehicles.Click += new System.EventHandler(this.btnVehicles_Click);
-            // 
-            // lblBrand
-            // 
-            this.lblBrand.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblBrand.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblBrand.ForeColor = System.Drawing.Color.Gold;
-            this.lblBrand.Location = new System.Drawing.Point(0, 0);
-            this.lblBrand.Name = "lblBrand";
-            this.lblBrand.Size = new System.Drawing.Size(200, 70);
-            this.lblBrand.TabIndex = 0;
-            this.lblBrand.Text = "TMS Dashboard";
-            this.lblBrand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlHeader
             // 
@@ -168,7 +181,7 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(200, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(650, 70);
+            this.pnlHeader.Size = new System.Drawing.Size(680, 65);
             this.pnlHeader.TabIndex = 1;
             // 
             // lblWelcome
@@ -176,7 +189,7 @@
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.lblWelcome.ForeColor = System.Drawing.Color.FromArgb(40, 40, 40);
-            this.lblWelcome.Location = new System.Drawing.Point(20, 25);
+            this.lblWelcome.Location = new System.Drawing.Point(20, 22);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(126, 20);
             this.lblWelcome.TabIndex = 0;
@@ -185,186 +198,127 @@
             // pnlContent
             // 
             this.pnlContent.BackColor = System.Drawing.Color.FromArgb(245, 246, 250);
-            this.pnlContent.Controls.Add(this.pnlNewRequest);
-            this.pnlContent.Controls.Add(this.lblSectionTitle);
-            this.pnlContent.Controls.Add(this.dgvData);
+            this.pnlContent.Controls.Add(this.pnlHomeOverview);
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContent.Location = new System.Drawing.Point(200, 70);
+            this.pnlContent.Location = new System.Drawing.Point(200, 65);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Padding = new System.Windows.Forms.Padding(20);
-            this.pnlContent.Size = new System.Drawing.Size(650, 480);
+            this.pnlContent.Size = new System.Drawing.Size(680, 495);
             this.pnlContent.TabIndex = 2;
             // 
-            // lblSectionTitle
+            // pnlHomeOverview
             // 
-            this.lblSectionTitle.AutoSize = true;
-            this.lblSectionTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblSectionTitle.ForeColor = System.Drawing.Color.FromArgb(60, 60, 60);
-            this.lblSectionTitle.Location = new System.Drawing.Point(20, 15);
-            this.lblSectionTitle.Name = "lblSectionTitle";
-            this.lblSectionTitle.Size = new System.Drawing.Size(95, 20);
-            this.lblSectionTitle.TabIndex = 1;
-            this.lblSectionTitle.Text = "Vehicle Fleet";
+            this.pnlHomeOverview.Controls.Add(this.cardTours);
+            this.pnlHomeOverview.Controls.Add(this.cardDrivers);
+            this.pnlHomeOverview.Controls.Add(this.cardVehicles);
+            this.pnlHomeOverview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlHomeOverview.Location = new System.Drawing.Point(0, 0);
+            this.pnlHomeOverview.Name = "pnlHomeOverview";
+            this.pnlHomeOverview.Padding = new System.Windows.Forms.Padding(25);
+            this.pnlHomeOverview.Size = new System.Drawing.Size(680, 495);
+            this.pnlHomeOverview.TabIndex = 0;
             // 
-            // dgvData
+            // cardVehicles
             // 
-            this.dgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvData.BackgroundColor = System.Drawing.Color.White;
-            this.dgvData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvData.Location = new System.Drawing.Point(20, 45);
-            this.dgvData.Name = "dgvData";
-            this.dgvData.ReadOnly = true;
-            this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvData.Size = new System.Drawing.Size(610, 415);
-            this.dgvData.TabIndex = 0;
+            this.cardVehicles.BackColor = System.Drawing.Color.White;
+            this.cardVehicles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cardVehicles.Controls.Add(this.lblVehCount);
+            this.cardVehicles.Controls.Add(this.lblVehTitle);
+            this.cardVehicles.Location = new System.Drawing.Point(25, 25);
+            this.cardVehicles.Name = "cardVehicles";
+            this.cardVehicles.Size = new System.Drawing.Size(180, 110);
+            this.cardVehicles.TabIndex = 0;
             // 
-            // pnlNewRequest
+            // lblVehTitle
             // 
-            this.pnlNewRequest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlNewRequest.BackColor = System.Drawing.Color.White;
-            this.pnlNewRequest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlNewRequest.Controls.Add(this.btnSubmitRequest);
-            this.pnlNewRequest.Controls.Add(this.txtRemark);
-            this.pnlNewRequest.Controls.Add(this.lblRemark);
-            this.pnlNewRequest.Controls.Add(this.txtTime);
-            this.pnlNewRequest.Controls.Add(this.lblTime);
-            this.pnlNewRequest.Controls.Add(this.dtpDate);
-            this.pnlNewRequest.Controls.Add(this.lblDate);
-            this.pnlNewRequest.Controls.Add(this.txtTo);
-            this.pnlNewRequest.Controls.Add(this.lblTo);
-            this.pnlNewRequest.Controls.Add(this.txtFrom);
-            this.pnlNewRequest.Controls.Add(this.lblFrom);
-            this.pnlNewRequest.Controls.Add(this.txtDepartment);
-            this.pnlNewRequest.Controls.Add(this.lblDept);
-            this.pnlNewRequest.Location = new System.Drawing.Point(20, 45);
-            this.pnlNewRequest.Name = "pnlNewRequest";
-            this.pnlNewRequest.Size = new System.Drawing.Size(610, 415);
-            this.pnlNewRequest.TabIndex = 2;
-            this.pnlNewRequest.Visible = false;
+            this.lblVehTitle.AutoSize = true;
+            this.lblVehTitle.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular);
+            this.lblVehTitle.ForeColor = System.Drawing.Color.Gray;
+            this.lblVehTitle.Location = new System.Drawing.Point(15, 15);
+            this.lblVehTitle.Name = "lblVehTitle";
+            this.lblVehTitle.Size = new System.Drawing.Size(89, 17);
+            this.lblVehTitle.Text = "Total Vehicles";
             // 
-            // lblDept
+            // lblVehCount
             // 
-            this.lblDept.AutoSize = true;
-            this.lblDept.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblDept.Location = new System.Drawing.Point(25, 12);
-            this.lblDept.Name = "lblDept";
-            this.lblDept.Size = new System.Drawing.Size(73, 15);
-            this.lblDept.Text = "Department:";
+            this.lblVehCount.AutoSize = true;
+            this.lblVehCount.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
+            this.lblVehCount.ForeColor = System.Drawing.Color.FromArgb(0, 123, 255);
+            this.lblVehCount.Location = new System.Drawing.Point(15, 45);
+            this.lblVehCount.Name = "lblVehCount";
+            this.lblVehCount.Size = new System.Drawing.Size(35, 41);
+            this.lblVehCount.Text = "0";
             // 
-            // txtDepartment
+            // cardDrivers
             // 
-            this.txtDepartment.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.txtDepartment.Location = new System.Drawing.Point(28, 30);
-            this.txtDepartment.Name = "txtDepartment";
-            this.txtDepartment.Size = new System.Drawing.Size(550, 24);
+            this.cardDrivers.BackColor = System.Drawing.Color.White;
+            this.cardDrivers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cardDrivers.Controls.Add(this.lblDrivCount);
+            this.cardDrivers.Controls.Add(this.lblDrivTitle);
+            this.cardDrivers.Location = new System.Drawing.Point(235, 25);
+            this.cardDrivers.Name = "cardDrivers";
+            this.cardDrivers.Size = new System.Drawing.Size(180, 110);
+            this.cardDrivers.TabIndex = 1;
             // 
-            // lblFrom
+            // lblDrivTitle
             // 
-            this.lblFrom.AutoSize = true;
-            this.lblFrom.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblFrom.Location = new System.Drawing.Point(25, 65);
-            this.lblFrom.Name = "lblFrom";
-            this.lblFrom.Size = new System.Drawing.Size(133, 15);
-            this.lblFrom.Text = "From (Pickup Location):";
+            this.lblDrivTitle.AutoSize = true;
+            this.lblDrivTitle.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular);
+            this.lblDrivTitle.ForeColor = System.Drawing.Color.Gray;
+            this.lblDrivTitle.Location = new System.Drawing.Point(15, 15);
+            this.lblDrivTitle.Name = "lblDrivTitle";
+            this.lblDrivTitle.Size = new System.Drawing.Size(82, 17);
+            this.lblDrivTitle.Text = "Total Drivers";
             // 
-            // txtFrom
+            // lblDrivCount
             // 
-            this.txtFrom.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.txtFrom.Location = new System.Drawing.Point(28, 83);
-            this.txtFrom.Name = "txtFrom";
-            this.txtFrom.Size = new System.Drawing.Size(260, 24);
+            this.lblDrivCount.AutoSize = true;
+            this.lblDrivCount.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
+            this.lblDrivCount.ForeColor = System.Drawing.Color.FromArgb(40, 167, 69);
+            this.lblDrivCount.Location = new System.Drawing.Point(15, 45);
+            this.lblDrivCount.Name = "lblDrivCount";
+            this.lblDrivCount.Size = new System.Drawing.Size(35, 41);
+            this.lblDrivCount.Text = "0";
             // 
-            // lblTo
+            // cardTours
             // 
-            this.lblTo.AutoSize = true;
-            this.lblTo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblTo.Location = new System.Drawing.Point(315, 65);
-            this.lblTo.Name = "lblTo";
-            this.lblTo.Size = new System.Drawing.Size(126, 15);
-            this.lblTo.Text = "To (Drop-off Location):";
+            this.cardTours.BackColor = System.Drawing.Color.White;
+            this.cardTours.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cardTours.Controls.Add(this.lblTourCount);
+            this.cardTours.Controls.Add(this.lblTourTitle);
+            this.cardTours.Location = new System.Drawing.Point(445, 25);
+            this.cardTours.Name = "cardTours";
+            this.cardTours.Size = new System.Drawing.Size(180, 110);
+            this.cardTours.TabIndex = 2;
             // 
-            // txtTo
+            // lblTourTitle
             // 
-            this.txtTo.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.txtTo.Location = new System.Drawing.Point(318, 83);
-            this.txtTo.Name = "txtTo";
-            this.txtTo.Size = new System.Drawing.Size(260, 24);
+            this.lblTourTitle.AutoSize = true;
+            this.lblTourTitle.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular);
+            this.lblTourTitle.ForeColor = System.Drawing.Color.Gray;
+            this.lblTourTitle.Location = new System.Drawing.Point(15, 15);
+            this.lblTourTitle.Name = "lblTourTitle";
+            this.lblTourTitle.Size = new System.Drawing.Size(91, 17);
+            this.lblTourTitle.Text = "Tour Requests";
             // 
-            // lblDate
+            // lblTourCount
             // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblDate.Location = new System.Drawing.Point(25, 120);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(34, 15);
-            this.lblDate.Text = "Date:";
-            // 
-            // dtpDate
-            // 
-            this.dtpDate.CustomFormat = "yyyy-MM-dd";
-            this.dtpDate.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDate.Location = new System.Drawing.Point(28, 138);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(260, 24);
-            // 
-            // lblTime
-            // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblTime.Location = new System.Drawing.Point(315, 120);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(122, 15);
-            this.lblTime.Text = "Time (e.g. 09:30 AM):";
-            // 
-            // txtTime
-            // 
-            this.txtTime.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.txtTime.Location = new System.Drawing.Point(318, 138);
-            this.txtTime.Name = "txtTime";
-            this.txtTime.Size = new System.Drawing.Size(260, 24);
-            // 
-            // lblRemark
-            // 
-            this.lblRemark.AutoSize = true;
-            this.lblRemark.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblRemark.Location = new System.Drawing.Point(25, 175);
-            this.lblRemark.Name = "lblRemark";
-            this.lblRemark.Size = new System.Drawing.Size(50, 15);
-            this.lblRemark.Text = "Remark:";
-            // 
-            // txtRemark
-            // 
-            this.txtRemark.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.txtRemark.Location = new System.Drawing.Point(28, 193);
-            this.txtRemark.Multiline = true;
-            this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(550, 75);
-            // 
-            // btnSubmitRequest
-            // 
-            this.btnSubmitRequest.BackColor = System.Drawing.Color.Gold;
-            this.btnSubmitRequest.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSubmitRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmitRequest.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnSubmitRequest.Location = new System.Drawing.Point(28, 285);
-            this.btnSubmitRequest.Name = "btnSubmitRequest";
-            this.btnSubmitRequest.Size = new System.Drawing.Size(550, 40);
-            this.btnSubmitRequest.Text = "Submit Request";
-            this.btnSubmitRequest.UseVisualStyleBackColor = false;
-            this.btnSubmitRequest.Click += new System.EventHandler(this.btnSubmitRequest_Click);
+            this.lblTourCount.AutoSize = true;
+            this.lblTourCount.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
+            this.lblTourCount.ForeColor = System.Drawing.Color.FromArgb(255, 193, 7);
+            this.lblTourCount.Location = new System.Drawing.Point(15, 45);
+            this.lblTourCount.Name = "lblTourCount";
+            this.lblTourCount.Size = new System.Drawing.Size(35, 41);
+            this.lblTourCount.Text = "0";
             // 
             // MainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 550);
+            this.ClientSize = new System.Drawing.Size(880, 560);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlSidebar);
-            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(850, 520);
             this.Name = "MainDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transport Management System - Dashboard";
@@ -374,10 +328,13 @@
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlContent.ResumeLayout(false);
-            this.pnlContent.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
-            this.pnlNewRequest.ResumeLayout(false);
-            this.pnlNewRequest.PerformLayout();
+            this.pnlHomeOverview.ResumeLayout(false);
+            this.cardVehicles.ResumeLayout(false);
+            this.cardVehicles.PerformLayout();
+            this.cardDrivers.ResumeLayout(false);
+            this.cardDrivers.PerformLayout();
+            this.cardTours.ResumeLayout(false);
+            this.cardTours.PerformLayout();
             this.ResumeLayout(false);
         }
 
@@ -390,24 +347,19 @@
         private System.Windows.Forms.Button btnTours;
         private System.Windows.Forms.Button btnDrivers;
         private System.Windows.Forms.Button btnVehicles;
+        private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Panel pnlContent;
-        private System.Windows.Forms.Label lblSectionTitle;
-        private System.Windows.Forms.DataGridView dgvData;
-        private System.Windows.Forms.Panel pnlNewRequest;
-        private System.Windows.Forms.Label lblDept;
-        private System.Windows.Forms.TextBox txtDepartment;
-        private System.Windows.Forms.Label lblFrom;
-        private System.Windows.Forms.TextBox txtFrom;
-        private System.Windows.Forms.Label lblTo;
-        private System.Windows.Forms.TextBox txtTo;
-        private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.DateTimePicker dtpDate;
-        private System.Windows.Forms.Label lblTime;
-        private System.Windows.Forms.TextBox txtTime;
-        private System.Windows.Forms.Label lblRemark;
-        private System.Windows.Forms.TextBox txtRemark;
-        private System.Windows.Forms.Button btnSubmitRequest;
+        private System.Windows.Forms.Panel pnlHomeOverview;
+        private System.Windows.Forms.Panel cardVehicles;
+        private System.Windows.Forms.Label lblVehCount;
+        private System.Windows.Forms.Label lblVehTitle;
+        private System.Windows.Forms.Panel cardDrivers;
+        private System.Windows.Forms.Label lblDrivCount;
+        private System.Windows.Forms.Label lblDrivTitle;
+        private System.Windows.Forms.Panel cardTours;
+        private System.Windows.Forms.Label lblTourCount;
+        private System.Windows.Forms.Label lblTourTitle;
     }
 }
