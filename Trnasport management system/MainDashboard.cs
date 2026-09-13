@@ -11,22 +11,44 @@ namespace Trnasport_management_system
     public partial class MainDashboard : Form
     {
         private string currentUser = "";
+        private string currentRole = "";
 
         // Status Counts for Chart
         private int countPending = 0;
         private int countApproved = 0;
         private int countRejected = 0;
 
-        public MainDashboard(string username = "Admin")
+        public MainDashboard(string username = "Admin", string role = "Admin")
         {
             InitializeComponent();
             currentUser = string.IsNullOrWhiteSpace(username) ? "Admin" : username;
+            currentRole = string.IsNullOrWhiteSpace(role) ? "Admin" : role;
         }
 
         private void MainDashboard_Load(object sender, EventArgs e)
         {
-            lblWelcome.Text = "Welcome, " + currentUser;
+            lblWelcome.Text = $"Welcome, {currentUser}";
+
+            // Role eka check karala Normal User ta management buttons hide karanawa
+            ApplyRolePermissions();
+
             LoadDashboardSummary();
+        }
+
+        private void ApplyRolePermissions()
+        {
+            if (!currentRole.Equals("Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                btnVehicles.Visible = false;
+                btnDrivers.Visible = false;
+                btnUsers.Visible = false;
+            }
+            else
+            {
+                btnVehicles.Visible = true;
+                btnDrivers.Visible = true;
+                btnUsers.Visible = true;
+            }
         }
 
         public void LoadDashboardSummary()
@@ -43,40 +65,40 @@ namespace Trnasport_management_system
                     // Card 1: Total Vehicles
                     using (MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM vehicles", conn))
                     {
-                        object res = cmd.ExecuteScalar();
+                        object? res = cmd.ExecuteScalar();
                         lblVehCount.Text = res != null ? res.ToString() : "0";
                     }
 
                     // Card 2: Total Drivers
                     using (MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM drivers", conn))
                     {
-                        object res = cmd.ExecuteScalar();
+                        object? res = cmd.ExecuteScalar();
                         lblDrivCount.Text = res != null ? res.ToString() : "0";
                     }
 
                     // Card 3: Total Tours
                     using (MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM tour_requests", conn))
                     {
-                        object res = cmd.ExecuteScalar();
+                        object? res = cmd.ExecuteScalar();
                         lblTourCount.Text = res != null ? res.ToString() : "0";
                     }
 
                     // Chart Status Counts
                     using (MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM tour_requests WHERE status = 'Pending'", conn))
                     {
-                        object res = cmd.ExecuteScalar();
+                        object? res = cmd.ExecuteScalar();
                         countPending = res != null ? Convert.ToInt32(res) : 0;
                     }
 
                     using (MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM tour_requests WHERE status = 'Approved'", conn))
                     {
-                        object res = cmd.ExecuteScalar();
+                        object? res = cmd.ExecuteScalar();
                         countApproved = res != null ? Convert.ToInt32(res) : 0;
                     }
 
                     using (MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM tour_requests WHERE status = 'Rejected'", conn))
                     {
-                        object res = cmd.ExecuteScalar();
+                        object? res = cmd.ExecuteScalar();
                         countRejected = res != null ? Convert.ToInt32(res) : 0;
                     }
 
