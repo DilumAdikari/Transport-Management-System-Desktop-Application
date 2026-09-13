@@ -16,6 +16,7 @@
         {
             this.pnlSidebar = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.btnUsers = new System.Windows.Forms.Button();
             this.btnDrivers = new System.Windows.Forms.Button();
             this.btnVehicles = new System.Windows.Forms.Button();
             this.btnTours = new System.Windows.Forms.Button();
@@ -48,6 +49,7 @@
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.pnlSidebar.Controls.Add(this.btnLogout);
+            this.pnlSidebar.Controls.Add(this.btnUsers);
             this.pnlSidebar.Controls.Add(this.btnDrivers);
             this.pnlSidebar.Controls.Add(this.btnVehicles);
             this.pnlSidebar.Controls.Add(this.btnTours);
@@ -157,6 +159,23 @@
             this.btnDrivers.UseVisualStyleBackColor = true;
             this.btnDrivers.Click += new System.EventHandler(this.btnDrivers_Click);
             // 
+            // btnUsers
+            // 
+            this.btnUsers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsers.FlatAppearance.BorderSize = 0;
+            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsers.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.btnUsers.ForeColor = System.Drawing.Color.LightSkyBlue;
+            this.btnUsers.Location = new System.Drawing.Point(0, 275);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnUsers.Size = new System.Drawing.Size(200, 42);
+            this.btnUsers.TabIndex = 6;
+            this.btnUsers.Text = "Manage Users";
+            this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers.UseVisualStyleBackColor = true;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
+            // 
             // btnLogout
             // 
             this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
@@ -168,7 +187,7 @@
             this.btnLogout.Location = new System.Drawing.Point(0, 515);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(200, 45);
-            this.btnLogout.TabIndex = 6;
+            this.btnLogout.TabIndex = 7;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
@@ -348,6 +367,7 @@
         private System.Windows.Forms.Panel pnlSidebar;
         private System.Windows.Forms.Label lblBrand;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.Button btnDrivers;
         private System.Windows.Forms.Button btnVehicles;
         private System.Windows.Forms.Button btnTours;

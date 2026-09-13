@@ -12,7 +12,7 @@ namespace Trnasport_management_system
         public MainDashboard(string username = "Admin")
         {
             InitializeComponent();
-            currentUser = username;
+            currentUser = string.IsNullOrWhiteSpace(username) ? "Admin" : username;
         }
 
         private void MainDashboard_Load(object sender, EventArgs e)
@@ -32,13 +32,22 @@ namespace Trnasport_management_system
                 {
                     conn.Open();
                     using (MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM vehicles", conn))
-                        lblVehCount.Text = cmd.ExecuteScalar().ToString();
+                    {
+                        object res = cmd.ExecuteScalar();
+                        lblVehCount.Text = res != null ? res.ToString() : "0";
+                    }
 
                     using (MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM drivers", conn))
-                        lblDrivCount.Text = cmd.ExecuteScalar().ToString();
+                    {
+                        object res = cmd.ExecuteScalar();
+                        lblDrivCount.Text = res != null ? res.ToString() : "0";
+                    }
 
                     using (MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM tour_requests", conn))
-                        lblTourCount.Text = cmd.ExecuteScalar().ToString();
+                    {
+                        object res = cmd.ExecuteScalar();
+                        lblTourCount.Text = res != null ? res.ToString() : "0";
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -52,9 +61,10 @@ namespace Trnasport_management_system
         {
             pnlHomeOverview.Visible = false;
 
-            // Content eke thiyena anith forms ain kirima
-            foreach (Control ctrl in pnlContent.Controls)
+            // Content eke thiyena anith active forms clear kirima
+            for (int i = pnlContent.Controls.Count - 1; i >= 0; i--)
             {
+                Control ctrl = pnlContent.Controls[i];
                 if (ctrl != pnlHomeOverview)
                 {
                     pnlContent.Controls.Remove(ctrl);
@@ -72,10 +82,11 @@ namespace Trnasport_management_system
         }
 
         private void btnHome_Click(object sender, EventArgs e) => LoadDashboardSummary();
+        private void btnNewRequest_Click(object sender, EventArgs e) => LoadSubForm(new NewRequestForm(this));
+        private void btnTours_Click(object sender, EventArgs e) => LoadSubForm(new TourRequestsForm());
         private void btnVehicles_Click(object sender, EventArgs e) => LoadSubForm(new VehiclesForm());
         private void btnDrivers_Click(object sender, EventArgs e) => LoadSubForm(new DriversForm());
-        private void btnTours_Click(object sender, EventArgs e) => LoadSubForm(new TourRequestsForm());
-        private void btnNewRequest_Click(object sender, EventArgs e) => LoadSubForm(new NewRequestForm(this));
+        private void btnUsers_Click(object sender, EventArgs e) => LoadSubForm(new UsersForm());
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
