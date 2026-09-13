@@ -15,7 +15,12 @@ namespace Trnasport_management_system
 
         private void UsersForm_Load(object sender, EventArgs e)
         {
-            cmbRole.SelectedIndex = 1; // Default "User"
+            // Dropdown items hariyatama set kirima
+            cmbRole.Items.Clear();
+            cmbRole.Items.Add("Admin");
+            cmbRole.Items.Add("Normal User");
+
+            cmbRole.SelectedIndex = 1; // Default select "Normal User"
             LoadUsers();
         }
 
@@ -26,10 +31,11 @@ namespace Trnasport_management_system
                 try
                 {
                     conn.Open();
-                    MySqlDataAdapter da = new MySqlDataAdapter("SELECT id AS 'ID', username AS 'Username', full_name AS 'Full Name', role AS 'Role' FROM users", conn);
+                    MySqlDataAdapter da = new MySqlDataAdapter("SELECT id AS 'ID', username AS 'Username', full_name AS 'Full Name', role AS 'Role' FROM users ORDER BY id DESC", conn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     dgvUsers.DataSource = dt;
+                    dgvUsers.RowHeadersVisible = false;
                 }
                 catch (Exception ex)
                 {
@@ -44,17 +50,23 @@ namespace Trnasport_management_system
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvUsers.Rows[e.RowIndex];
-                txtUserId.Text = row.Cells["ID"].Value?.ToString();
-                txtUsername.Text = row.Cells["Username"].Value?.ToString();
-                txtFullName.Text = row.Cells["Full Name"].Value?.ToString();
+                txtUserId.Text = row.Cells["ID"].Value?.ToString() ?? "";
+                txtUsername.Text = row.Cells["Username"].Value?.ToString() ?? "";
+                txtFullName.Text = row.Cells["Full Name"].Value?.ToString() ?? "";
 
-                string role = row.Cells["Role"].Value?.ToString();
-                if (cmbRole.Items.Contains(role))
+                string role = row.Cells["Role"].Value?.ToString()?.Trim() ?? "";
+
+                // Case-insensitive check - Role eka Admin nathnam Normal User select wenawa
+                if (string.Equals(role, "Admin", StringComparison.OrdinalIgnoreCase))
                 {
-                    cmbRole.SelectedItem = role;
+                    cmbRole.SelectedItem = "Admin";
+                }
+                else
+                {
+                    cmbRole.SelectedItem = "Normal User";
                 }
 
-                txtPassword.Clear(); // Password field eka empty thiyanne aluth pass ekak danawanam witharak type karanna
+                txtPassword.Clear();
             }
         }
 
@@ -64,7 +76,13 @@ namespace Trnasport_management_system
             string username = txtUsername.Text.Trim();
             string fullName = txtFullName.Text.Trim();
             string password = txtPassword.Text.Trim();
-            string role = cmbRole.SelectedItem?.ToString() ?? "User";
+
+            // Selected value hari Text eka hari gannawa (fallback: "Normal User")
+            string role = !string.IsNullOrWhiteSpace(cmbRole.Text) ? cmbRole.Text.Trim() : "Normal User";
+            if (!role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                role = "Normal User";
+            }
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(fullName) || string.IsNullOrEmpty(password))
             {
@@ -86,7 +104,7 @@ namespace Trnasport_management_system
                         cmd.Parameters.AddWithValue("@role", role);
                         cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"User registered successfully with Role: {role}!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ClearFields();
                         LoadUsers();
                     }
@@ -111,7 +129,12 @@ namespace Trnasport_management_system
             string username = txtUsername.Text.Trim();
             string fullName = txtFullName.Text.Trim();
             string password = txtPassword.Text.Trim();
-            string role = cmbRole.SelectedItem?.ToString() ?? "User";
+
+            string role = !string.IsNullOrWhiteSpace(cmbRole.Text) ? cmbRole.Text.Trim() : "Normal User";
+            if (!role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                role = "Normal User";
+            }
 
             using (MySqlConnection conn = new MySqlConnection(Program.ConnString))
             {
@@ -120,7 +143,6 @@ namespace Trnasport_management_system
                     conn.Open();
                     string query = "";
 
-                    // Password eka type karala thiyenam eka update karanawa, nathnam password eka wenas karanne na
                     if (!string.IsNullOrEmpty(password))
                     {
                         query = "UPDATE users SET username = @user, full_name = @name, password = @pass, role = @role WHERE id = @id";
@@ -165,7 +187,7 @@ namespace Trnasport_management_system
             txtUsername.Clear();
             txtFullName.Clear();
             txtPassword.Clear();
-            cmbRole.SelectedIndex = 1;
+            cmbRole.SelectedIndex = 1; // Reset to "Normal User"
         }
     }
 }

@@ -37,6 +37,7 @@ namespace Trnasport_management_system
                 try
                 {
                     conn.Open();
+                    // full_name ekai role ekai dekama select karanawa
                     string query = "SELECT full_name, role FROM users WHERE username = @user AND password = @pass";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -48,11 +49,13 @@ namespace Trnasport_management_system
                         {
                             if (reader.Read())
                             {
-                                string fullName = reader["full_name"].ToString();
+                                string fullName = reader["full_name"]?.ToString() ?? username;
+                                string role = reader["role"]?.ToString() ?? "Normal User";
+
                                 MessageBox.Show($"Login Successful! Welcome {fullName}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                // MainDashboard ekata navigate kirima
-                                MainDashboard dashboard = new MainDashboard(fullName);
+                                // MainDashboard ekata fullName saha role pass kirima
+                                MainDashboard dashboard = new MainDashboard(fullName, role);
                                 dashboard.Show();
 
                                 // Login form eka hide kirima
