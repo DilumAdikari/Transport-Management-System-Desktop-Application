@@ -10,7 +10,16 @@ namespace Trnasport_management_system
     {
         public DriversForm() => InitializeComponent();
 
-        private void DriversForm_Load(object sender, EventArgs e) => LoadDrivers();
+        private void DriversForm_Load(object sender, EventArgs e)
+        {
+            // Yata thiyena his add-row eka ain kirima
+            dgvDrivers.AllowUserToAddRows = false;
+
+            // Wamen thiyena arrow column eka (Row Header) ain kirima
+            dgvDrivers.RowHeadersVisible = false;
+
+            LoadDrivers();
+        }
 
         private void LoadDrivers()
         {
