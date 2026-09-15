@@ -18,6 +18,12 @@ namespace Trnasport_management_system
 
         private void TourRequestsForm_Load(object sender, EventArgs e)
         {
+            // Yata thiyena his add-row eka ain kirima
+            dgvTours.AllowUserToAddRows = false;
+
+            // Wamen thiyena arrow column eka (Row Header) ain kirima
+            dgvTours.RowHeadersVisible = false;
+
             // Row coloring event eka attach kirima
             dgvTours.CellFormatting += dgvTours_CellFormatting;
 
