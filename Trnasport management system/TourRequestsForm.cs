@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using TransportManagementSystem;
 
@@ -17,6 +18,9 @@ namespace Trnasport_management_system
 
         private void TourRequestsForm_Load(object sender, EventArgs e)
         {
+            // Row coloring event eka attach kirima
+            dgvTours.CellFormatting += dgvTours_CellFormatting;
+
             LoadTours();
             LoadDropdownData();
         }
@@ -51,6 +55,42 @@ namespace Trnasport_management_system
                 catch (Exception ex)
                 {
                     MessageBox.Show("DB Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        // Status anuwa Row Background saha Text Colors auto apply kirima
+        private void dgvTours_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvTours.Columns[e.ColumnIndex].Name.Equals("Status", StringComparison.OrdinalIgnoreCase) ||
+                dgvTours.Columns[e.ColumnIndex].HeaderText.Equals("Status", StringComparison.OrdinalIgnoreCase))
+            {
+                DataGridViewRow row = dgvTours.Rows[e.RowIndex];
+                string status = row.Cells[e.ColumnIndex].Value?.ToString()?.Trim() ?? "";
+
+                if (string.Equals(status, "Approved", StringComparison.OrdinalIgnoreCase))
+                {
+                    // Light Green Row
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(212, 237, 218);
+                    row.DefaultCellStyle.ForeColor = Color.FromArgb(21, 87, 36);
+                    row.DefaultCellStyle.SelectionBackColor = Color.FromArgb(195, 230, 203);
+                    row.DefaultCellStyle.SelectionForeColor = Color.FromArgb(21, 87, 36);
+                }
+                else if (string.Equals(status, "Rejected", StringComparison.OrdinalIgnoreCase))
+                {
+                    // Light Red Row
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(248, 215, 218);
+                    row.DefaultCellStyle.ForeColor = Color.FromArgb(114, 28, 36);
+                    row.DefaultCellStyle.SelectionBackColor = Color.FromArgb(245, 198, 203);
+                    row.DefaultCellStyle.SelectionForeColor = Color.FromArgb(114, 28, 36);
+                }
+                else if (string.Equals(status, "Pending", StringComparison.OrdinalIgnoreCase))
+                {
+                    // Light Yellow/Gold Row
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 243, 205);
+                    row.DefaultCellStyle.ForeColor = Color.FromArgb(133, 100, 4);
+                    row.DefaultCellStyle.SelectionBackColor = Color.FromArgb(255, 238, 186);
+                    row.DefaultCellStyle.SelectionForeColor = Color.FromArgb(133, 100, 4);
                 }
             }
         }
