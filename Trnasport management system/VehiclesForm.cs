@@ -10,7 +10,16 @@ namespace Trnasport_management_system
     {
         public VehiclesForm() => InitializeComponent();
 
-        private void VehiclesForm_Load(object sender, EventArgs e) => LoadVehicles();
+        private void VehiclesForm_Load(object sender, EventArgs e)
+        {
+            // Yata thiyena his add-row eka ain kirima
+            dgvVehicles.AllowUserToAddRows = false;
+
+            // Wamen thiyena arrow column eka (Row Header) ain kirima
+            dgvVehicles.RowHeadersVisible = false;
+
+            LoadVehicles();
+        }
 
         private void LoadVehicles()
         {
