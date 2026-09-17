@@ -16,6 +16,7 @@
         {
             pnlSidebar = new Panel();
             btnLogout = new Button();
+            btnReports = new Button();
             btnUsers = new Button();
             btnDrivers = new Button();
             btnVehicles = new Button();
@@ -57,6 +58,7 @@
             // 
             pnlSidebar.BackColor = Color.FromArgb(33, 37, 41);
             pnlSidebar.Controls.Add(btnLogout);
+            pnlSidebar.Controls.Add(btnReports);
             pnlSidebar.Controls.Add(btnUsers);
             pnlSidebar.Controls.Add(btnDrivers);
             pnlSidebar.Controls.Add(btnVehicles);
@@ -83,10 +85,28 @@
             btnLogout.Margin = new Padding(3, 4, 3, 4);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(229, 60);
-            btnLogout.TabIndex = 7;
+            btnLogout.TabIndex = 8;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
+            // 
+            // btnReports
+            // 
+            btnReports.Dock = DockStyle.Top;
+            btnReports.FlatAppearance.BorderSize = 0;
+            btnReports.FlatStyle = FlatStyle.Flat;
+            btnReports.Font = new Font("Segoe UI", 9.5F);
+            btnReports.ForeColor = Color.Gold;
+            btnReports.Location = new Point(0, 423);
+            btnReports.Margin = new Padding(3, 4, 3, 4);
+            btnReports.Name = "btnReports";
+            btnReports.Padding = new Padding(17, 0, 0, 0);
+            btnReports.Size = new Size(229, 56);
+            btnReports.TabIndex = 7;
+            btnReports.Text = "Tour Reports";
+            btnReports.TextAlign = ContentAlignment.MiddleLeft;
+            btnReports.UseVisualStyleBackColor = true;
+            btnReports.Click += btnReports_Click;
             // 
             // btnUsers
             // 
@@ -463,6 +483,7 @@
         private System.Windows.Forms.Panel pnlSidebar;
         private System.Windows.Forms.Label lblBrand;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.Button btnDrivers;
         private System.Windows.Forms.Button btnVehicles;

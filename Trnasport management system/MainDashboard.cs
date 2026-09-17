@@ -29,7 +29,7 @@ namespace Trnasport_management_system
         {
             lblWelcome.Text = $"Welcome, {currentUser}";
 
-            // Role eka check karala Normal User ta management buttons hide karanawa
+            // Role permissions check kirima
             ApplyRolePermissions();
 
             LoadDashboardSummary();
@@ -37,7 +37,10 @@ namespace Trnasport_management_system
 
         private void ApplyRolePermissions()
         {
-            if (!currentRole.Equals("Admin", StringComparison.OrdinalIgnoreCase))
+            string role = (currentRole ?? "").Trim();
+
+            // Admin nowana ayata management buttons hide karanawa
+            if (!string.Equals(role, "Admin", StringComparison.OrdinalIgnoreCase))
             {
                 btnVehicles.Visible = false;
                 btnDrivers.Visible = false;
@@ -241,6 +244,9 @@ namespace Trnasport_management_system
         private void btnVehicles_Click(object sender, EventArgs e) => LoadSubForm(new VehiclesForm());
         private void btnDrivers_Click(object sender, EventArgs e) => LoadSubForm(new DriversForm());
         private void btnUsers_Click(object sender, EventArgs e) => LoadSubForm(new UsersForm());
+
+        // Reports Form eka sub form widiyata load kirima
+        private void btnReports_Click(object sender, EventArgs e) => LoadSubForm(new ReportsForm());
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
