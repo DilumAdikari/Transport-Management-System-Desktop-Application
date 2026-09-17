@@ -18,11 +18,22 @@ namespace Trnasport_management_system
         private int countApproved = 0;
         private int countRejected = 0;
 
+        // Sidebar Collapse/Expand Animation Variables
+        private System.Windows.Forms.Timer sidebarTimer;
+        private bool isSidebarExpanded = true;
+        private const int SIDEBAR_EXPANDED_WIDTH = 235;
+        private const int SIDEBAR_COLLAPSED_WIDTH = 65;
+
         public MainDashboard(string username = "Admin", string role = "Admin")
         {
             InitializeComponent();
             currentUser = string.IsNullOrWhiteSpace(username) ? "Admin" : username;
             currentRole = string.IsNullOrWhiteSpace(role) ? "Admin" : role;
+
+            // Sidebar smooth animation timer initialize kirima
+            sidebarTimer = new System.Windows.Forms.Timer();
+            sidebarTimer.Interval = 10; // Animation tick speed
+            sidebarTimer.Tick += SidebarTimer_Tick;
         }
 
         private void MainDashboard_Load(object sender, EventArgs e)
@@ -51,6 +62,41 @@ namespace Trnasport_management_system
                 btnVehicles.Visible = true;
                 btnDrivers.Visible = true;
                 btnUsers.Visible = true;
+            }
+        }
+
+        // Hamburger button eka click karaddi animation start kirima
+        private void btnToggleSidebar_Click(object sender, EventArgs e)
+        {
+            sidebarTimer.Start();
+        }
+
+        // Smooth collapse & expand tick execution
+        private void SidebarTimer_Tick(object sender, EventArgs e)
+        {
+            if (isSidebarExpanded)
+            {
+                pnlSidebar.Width -= 20;
+                if (pnlSidebar.Width <= SIDEBAR_COLLAPSED_WIDTH)
+                {
+                    pnlSidebar.Width = SIDEBAR_COLLAPSED_WIDTH;
+                    isSidebarExpanded = false;
+                    sidebarTimer.Stop();
+                    btnToggleSidebar.Text = "☰";
+                    lblBrand.Visible = false;
+                }
+            }
+            else
+            {
+                pnlSidebar.Width += 20;
+                if (pnlSidebar.Width >= SIDEBAR_EXPANDED_WIDTH)
+                {
+                    pnlSidebar.Width = SIDEBAR_EXPANDED_WIDTH;
+                    isSidebarExpanded = true;
+                    sidebarTimer.Stop();
+                    btnToggleSidebar.Text = "✕";
+                    lblBrand.Visible = true;
+                }
             }
         }
 
@@ -218,7 +264,6 @@ namespace Trnasport_management_system
         {
             pnlHomeOverview.Visible = false;
 
-            // Content eke thiyena active forms dispose karala ain kirima
             for (int i = pnlContent.Controls.Count - 1; i >= 0; i--)
             {
                 Control ctrl = pnlContent.Controls[i];
@@ -244,8 +289,6 @@ namespace Trnasport_management_system
         private void btnVehicles_Click(object sender, EventArgs e) => LoadSubForm(new VehiclesForm());
         private void btnDrivers_Click(object sender, EventArgs e) => LoadSubForm(new DriversForm());
         private void btnUsers_Click(object sender, EventArgs e) => LoadSubForm(new UsersForm());
-
-        // Reports Form eka sub form widiyata load kirima
         private void btnReports_Click(object sender, EventArgs e) => LoadSubForm(new ReportsForm());
 
         private void btnLogout_Click(object sender, EventArgs e)

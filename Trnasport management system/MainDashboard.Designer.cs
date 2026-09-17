@@ -23,6 +23,8 @@
             btnTours = new Button();
             btnNewRequest = new Button();
             btnHome = new Button();
+            pnlBrand = new Panel();
+            btnToggleSidebar = new Button();
             lblBrand = new Label();
             pnlHeader = new Panel();
             lblWelcome = new Label();
@@ -43,6 +45,7 @@
             lblVehCount = new Label();
             lblVehTitle = new Label();
             pnlSidebar.SuspendLayout();
+            pnlBrand.SuspendLayout();
             pnlHeader.SuspendLayout();
             pnlContent.SuspendLayout();
             pnlHomeOverview.SuspendLayout();
@@ -56,7 +59,7 @@
             // 
             // pnlSidebar
             // 
-            pnlSidebar.BackColor = Color.FromArgb(33, 37, 41);
+            pnlSidebar.BackColor = Color.FromArgb(28, 32, 40);
             pnlSidebar.Controls.Add(btnLogout);
             pnlSidebar.Controls.Add(btnReports);
             pnlSidebar.Controls.Add(btnUsers);
@@ -65,200 +68,240 @@
             pnlSidebar.Controls.Add(btnTours);
             pnlSidebar.Controls.Add(btnNewRequest);
             pnlSidebar.Controls.Add(btnHome);
-            pnlSidebar.Controls.Add(lblBrand);
+            pnlSidebar.Controls.Add(pnlBrand);
             pnlSidebar.Dock = DockStyle.Left;
             pnlSidebar.Location = new Point(0, 0);
             pnlSidebar.Margin = new Padding(3, 4, 3, 4);
             pnlSidebar.Name = "pnlSidebar";
-            pnlSidebar.Size = new Size(229, 747);
+            pnlSidebar.Size = new Size(235, 747);
             pnlSidebar.TabIndex = 0;
             // 
             // btnLogout
             // 
             btnLogout.BackColor = Color.FromArgb(220, 53, 69);
+            btnLogout.Cursor = Cursors.Hand;
             btnLogout.Dock = DockStyle.Bottom;
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnLogout.Font = new Font("Segoe UI", 10.5F, FontStyle.Bold);
             btnLogout.ForeColor = Color.White;
             btnLogout.Location = new Point(0, 687);
             btnLogout.Margin = new Padding(3, 4, 3, 4);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(229, 60);
+            btnLogout.Size = new Size(235, 60);
             btnLogout.TabIndex = 8;
-            btnLogout.Text = "Logout";
+            btnLogout.Text = "⏻   Logout";
             btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
             // 
             // btnReports
             // 
+            btnReports.Cursor = Cursors.Hand;
             btnReports.Dock = DockStyle.Top;
             btnReports.FlatAppearance.BorderSize = 0;
+            btnReports.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 52, 65);
             btnReports.FlatStyle = FlatStyle.Flat;
-            btnReports.Font = new Font("Segoe UI", 9.5F);
-            btnReports.ForeColor = Color.Gold;
+            btnReports.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnReports.ForeColor = Color.FromArgb(240, 243, 246);
             btnReports.Location = new Point(0, 423);
             btnReports.Margin = new Padding(3, 4, 3, 4);
             btnReports.Name = "btnReports";
-            btnReports.Padding = new Padding(17, 0, 0, 0);
-            btnReports.Size = new Size(229, 56);
+            btnReports.Padding = new Padding(18, 0, 0, 0);
+            btnReports.Size = new Size(235, 56);
             btnReports.TabIndex = 7;
-            btnReports.Text = "Tour Reports";
+            btnReports.Text = "📈   Tour Reports";
             btnReports.TextAlign = ContentAlignment.MiddleLeft;
             btnReports.UseVisualStyleBackColor = true;
             btnReports.Click += btnReports_Click;
             // 
             // btnUsers
             // 
+            btnUsers.Cursor = Cursors.Hand;
             btnUsers.Dock = DockStyle.Top;
             btnUsers.FlatAppearance.BorderSize = 0;
+            btnUsers.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 52, 65);
             btnUsers.FlatStyle = FlatStyle.Flat;
-            btnUsers.Font = new Font("Segoe UI", 9.5F);
-            btnUsers.ForeColor = Color.Gold;
+            btnUsers.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnUsers.ForeColor = Color.FromArgb(240, 243, 246);
             btnUsers.Location = new Point(0, 367);
             btnUsers.Margin = new Padding(3, 4, 3, 4);
             btnUsers.Name = "btnUsers";
-            btnUsers.Padding = new Padding(17, 0, 0, 0);
-            btnUsers.Size = new Size(229, 56);
+            btnUsers.Padding = new Padding(18, 0, 0, 0);
+            btnUsers.Size = new Size(235, 56);
             btnUsers.TabIndex = 6;
-            btnUsers.Text = "Manage Users";
+            btnUsers.Text = "👥   Manage Users";
             btnUsers.TextAlign = ContentAlignment.MiddleLeft;
             btnUsers.UseVisualStyleBackColor = true;
             btnUsers.Click += btnUsers_Click;
             // 
             // btnDrivers
             // 
+            btnDrivers.Cursor = Cursors.Hand;
             btnDrivers.Dock = DockStyle.Top;
             btnDrivers.FlatAppearance.BorderSize = 0;
+            btnDrivers.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 52, 65);
             btnDrivers.FlatStyle = FlatStyle.Flat;
-            btnDrivers.Font = new Font("Segoe UI", 9.5F);
-            btnDrivers.ForeColor = Color.Gold;
+            btnDrivers.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnDrivers.ForeColor = Color.FromArgb(240, 243, 246);
             btnDrivers.Location = new Point(0, 311);
             btnDrivers.Margin = new Padding(3, 4, 3, 4);
             btnDrivers.Name = "btnDrivers";
-            btnDrivers.Padding = new Padding(17, 0, 0, 0);
-            btnDrivers.Size = new Size(229, 56);
+            btnDrivers.Padding = new Padding(18, 0, 0, 0);
+            btnDrivers.Size = new Size(235, 56);
             btnDrivers.TabIndex = 5;
-            btnDrivers.Text = "Drivers Fleet";
+            btnDrivers.Text = "🪪   Drivers Fleet";
             btnDrivers.TextAlign = ContentAlignment.MiddleLeft;
             btnDrivers.UseVisualStyleBackColor = true;
             btnDrivers.Click += btnDrivers_Click;
             // 
             // btnVehicles
             // 
+            btnVehicles.Cursor = Cursors.Hand;
             btnVehicles.Dock = DockStyle.Top;
             btnVehicles.FlatAppearance.BorderSize = 0;
+            btnVehicles.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 52, 65);
             btnVehicles.FlatStyle = FlatStyle.Flat;
-            btnVehicles.Font = new Font("Segoe UI", 9.5F);
-            btnVehicles.ForeColor = Color.Gold;
+            btnVehicles.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnVehicles.ForeColor = Color.FromArgb(240, 243, 246);
             btnVehicles.Location = new Point(0, 255);
             btnVehicles.Margin = new Padding(3, 4, 3, 4);
             btnVehicles.Name = "btnVehicles";
-            btnVehicles.Padding = new Padding(17, 0, 0, 0);
-            btnVehicles.Size = new Size(229, 56);
+            btnVehicles.Padding = new Padding(18, 0, 0, 0);
+            btnVehicles.Size = new Size(235, 56);
             btnVehicles.TabIndex = 4;
-            btnVehicles.Text = "Vehicle Fleet";
+            btnVehicles.Text = "🚐   Vehicle Fleet";
             btnVehicles.TextAlign = ContentAlignment.MiddleLeft;
             btnVehicles.UseVisualStyleBackColor = true;
             btnVehicles.Click += btnVehicles_Click;
             // 
             // btnTours
             // 
+            btnTours.Cursor = Cursors.Hand;
             btnTours.Dock = DockStyle.Top;
             btnTours.FlatAppearance.BorderSize = 0;
+            btnTours.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 52, 65);
             btnTours.FlatStyle = FlatStyle.Flat;
-            btnTours.Font = new Font("Segoe UI", 9.5F);
-            btnTours.ForeColor = Color.Gold;
+            btnTours.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnTours.ForeColor = Color.FromArgb(240, 243, 246);
             btnTours.Location = new Point(0, 199);
             btnTours.Margin = new Padding(3, 4, 3, 4);
             btnTours.Name = "btnTours";
-            btnTours.Padding = new Padding(17, 0, 0, 0);
-            btnTours.Size = new Size(229, 56);
+            btnTours.Padding = new Padding(18, 0, 0, 0);
+            btnTours.Size = new Size(235, 56);
             btnTours.TabIndex = 3;
-            btnTours.Text = "Tour Requests";
+            btnTours.Text = "📑   Tour Requests";
             btnTours.TextAlign = ContentAlignment.MiddleLeft;
             btnTours.UseVisualStyleBackColor = true;
             btnTours.Click += btnTours_Click;
             // 
             // btnNewRequest
             // 
+            btnNewRequest.Cursor = Cursors.Hand;
             btnNewRequest.Dock = DockStyle.Top;
             btnNewRequest.FlatAppearance.BorderSize = 0;
+            btnNewRequest.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 52, 65);
             btnNewRequest.FlatStyle = FlatStyle.Flat;
-            btnNewRequest.Font = new Font("Segoe UI", 9.5F);
-            btnNewRequest.ForeColor = Color.Gold;
+            btnNewRequest.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnNewRequest.ForeColor = Color.FromArgb(255, 204, 0);
             btnNewRequest.Location = new Point(0, 143);
             btnNewRequest.Margin = new Padding(3, 4, 3, 4);
             btnNewRequest.Name = "btnNewRequest";
-            btnNewRequest.Padding = new Padding(17, 0, 0, 0);
-            btnNewRequest.Size = new Size(229, 56);
+            btnNewRequest.Padding = new Padding(18, 0, 0, 0);
+            btnNewRequest.Size = new Size(235, 56);
             btnNewRequest.TabIndex = 2;
-            btnNewRequest.Text = "+ New Request";
+            btnNewRequest.Text = "➕   New Request";
             btnNewRequest.TextAlign = ContentAlignment.MiddleLeft;
             btnNewRequest.UseVisualStyleBackColor = true;
             btnNewRequest.Click += btnNewRequest_Click;
             // 
             // btnHome
             // 
+            btnHome.Cursor = Cursors.Hand;
             btnHome.Dock = DockStyle.Top;
             btnHome.FlatAppearance.BorderSize = 0;
+            btnHome.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 52, 65);
             btnHome.FlatStyle = FlatStyle.Flat;
-            btnHome.Font = new Font("Segoe UI", 9.5F);
-            btnHome.ForeColor = Color.Gold;
+            btnHome.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnHome.ForeColor = Color.FromArgb(240, 243, 246);
             btnHome.Location = new Point(0, 87);
             btnHome.Margin = new Padding(3, 4, 3, 4);
             btnHome.Name = "btnHome";
-            btnHome.Padding = new Padding(17, 0, 0, 0);
-            btnHome.Size = new Size(229, 56);
+            btnHome.Padding = new Padding(18, 0, 0, 0);
+            btnHome.Size = new Size(235, 56);
             btnHome.TabIndex = 1;
-            btnHome.Text = "Dashboard Home";
+            btnHome.Text = "📊   Dashboard Home";
             btnHome.TextAlign = ContentAlignment.MiddleLeft;
             btnHome.UseVisualStyleBackColor = true;
             btnHome.Click += btnHome_Click;
             // 
+            // pnlBrand
+            // 
+            pnlBrand.BackColor = Color.FromArgb(21, 24, 30);
+            pnlBrand.Controls.Add(btnToggleSidebar);
+            pnlBrand.Controls.Add(lblBrand);
+            pnlBrand.Dock = DockStyle.Top;
+            pnlBrand.Location = new Point(0, 0);
+            pnlBrand.Name = "pnlBrand";
+            pnlBrand.Size = new Size(235, 87);
+            pnlBrand.TabIndex = 0;
+            // 
+            // btnToggleSidebar
+            // 
+            btnToggleSidebar.Cursor = Cursors.Hand;
+            btnToggleSidebar.FlatAppearance.BorderSize = 0;
+            btnToggleSidebar.FlatStyle = FlatStyle.Flat;
+            btnToggleSidebar.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            btnToggleSidebar.ForeColor = Color.Gold;
+            btnToggleSidebar.Location = new Point(10, 20);
+            btnToggleSidebar.Name = "btnToggleSidebar";
+            btnToggleSidebar.Size = new Size(45, 45);
+            btnToggleSidebar.TabIndex = 0;
+            btnToggleSidebar.Text = "☰";
+            btnToggleSidebar.UseVisualStyleBackColor = true;
+            btnToggleSidebar.Click += btnToggleSidebar_Click;
+            // 
             // lblBrand
             // 
-            lblBrand.Dock = DockStyle.Top;
+            lblBrand.AutoSize = true;
             lblBrand.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblBrand.ForeColor = Color.Gold;
-            lblBrand.Location = new Point(0, 0);
+            lblBrand.ForeColor = Color.FromArgb(255, 204, 0);
+            lblBrand.Location = new Point(62, 28);
             lblBrand.Name = "lblBrand";
-            lblBrand.Size = new Size(229, 87);
-            lblBrand.TabIndex = 0;
-            lblBrand.Text = "TMS Dashboard";
-            lblBrand.TextAlign = ContentAlignment.MiddleCenter;
+            lblBrand.Size = new Size(134, 28);
+            lblBrand.TabIndex = 1;
+            lblBrand.Text = "TMS PORTAL";
             // 
             // pnlHeader
             // 
             pnlHeader.BackColor = Color.White;
             pnlHeader.Controls.Add(lblWelcome);
             pnlHeader.Dock = DockStyle.Top;
-            pnlHeader.Location = new Point(229, 0);
+            pnlHeader.Location = new Point(235, 0);
             pnlHeader.Margin = new Padding(3, 4, 3, 4);
             pnlHeader.Name = "pnlHeader";
-            pnlHeader.Size = new Size(777, 87);
+            pnlHeader.Size = new Size(771, 87);
             pnlHeader.TabIndex = 1;
             // 
             // lblWelcome
             // 
             lblWelcome.AutoSize = true;
-            lblWelcome.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblWelcome.ForeColor = Color.FromArgb(40, 40, 40);
-            lblWelcome.Location = new Point(23, 29);
+            lblWelcome.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblWelcome.ForeColor = Color.FromArgb(33, 37, 41);
+            lblWelcome.Location = new Point(25, 29);
             lblWelcome.Name = "lblWelcome";
-            lblWelcome.Size = new Size(162, 25);
+            lblWelcome.Size = new Size(174, 28);
             lblWelcome.TabIndex = 0;
             lblWelcome.Text = "Welcome, Admin";
             // 
             // pnlContent
             // 
-            pnlContent.BackColor = Color.FromArgb(245, 246, 250);
+            pnlContent.BackColor = Color.FromArgb(245, 247, 250);
             pnlContent.Controls.Add(pnlHomeOverview);
             pnlContent.Dock = DockStyle.Fill;
-            pnlContent.Location = new Point(229, 87);
+            pnlContent.Location = new Point(235, 87);
             pnlContent.Margin = new Padding(3, 4, 3, 4);
             pnlContent.Name = "pnlContent";
-            pnlContent.Size = new Size(777, 660);
+            pnlContent.Size = new Size(771, 660);
             pnlContent.TabIndex = 2;
             // 
             // pnlHomeOverview
@@ -273,7 +316,7 @@
             pnlHomeOverview.Margin = new Padding(3, 4, 3, 4);
             pnlHomeOverview.Name = "pnlHomeOverview";
             pnlHomeOverview.Padding = new Padding(29, 33, 29, 33);
-            pnlHomeOverview.Size = new Size(777, 660);
+            pnlHomeOverview.Size = new Size(771, 660);
             pnlHomeOverview.TabIndex = 0;
             // 
             // pnlRecent
@@ -287,7 +330,7 @@
             pnlRecent.Margin = new Padding(3, 4, 3, 4);
             pnlRecent.Name = "pnlRecent";
             pnlRecent.Padding = new Padding(17, 20, 17, 20);
-            pnlRecent.Size = new Size(365, 412);
+            pnlRecent.Size = new Size(359, 412);
             pnlRecent.TabIndex = 4;
             // 
             // dgvRecentTours
@@ -304,7 +347,7 @@
             dgvRecentTours.RowHeadersVisible = false;
             dgvRecentTours.RowHeadersWidth = 51;
             dgvRecentTours.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvRecentTours.Size = new Size(329, 321);
+            dgvRecentTours.Size = new Size(323, 321);
             dgvRecentTours.TabIndex = 1;
             // 
             // lblRecentTitle
@@ -460,6 +503,8 @@
             FormClosed += MainDashboard_FormClosed;
             Load += MainDashboard_Load;
             pnlSidebar.ResumeLayout(false);
+            pnlBrand.ResumeLayout(false);
+            pnlBrand.PerformLayout();
             pnlHeader.ResumeLayout(false);
             pnlHeader.PerformLayout();
             pnlContent.ResumeLayout(false);
@@ -481,6 +526,8 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlSidebar;
+        private System.Windows.Forms.Panel pnlBrand;
+        private System.Windows.Forms.Button btnToggleSidebar;
         private System.Windows.Forms.Label lblBrand;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnReports;
